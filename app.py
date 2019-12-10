@@ -264,6 +264,10 @@ def is_locked():
 def method_not_allowed(e):
     return jsonify(action="ERROR",result="Method is not allowed!"), 405
 
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify(action="ERROR",result="The requested URL was not found on the AsteroidDB instance!"), 404
+
 @app.errorhandler(500)
 def internal_error(error):
     db.session.rollback()
