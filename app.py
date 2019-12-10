@@ -271,9 +271,9 @@ def internal_error(error):
 
 # Returns error.
 def return_error(message):
-response = jsonify(action="ERROR",result=message)
-response.status_code = 400
-return response
+    response = jsonify(action="ERROR",result=message)
+    response.status_code = 400
+    return response
         
 
 if __name__ == '__main__':
