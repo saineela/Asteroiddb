@@ -264,6 +264,11 @@ def is_locked():
 def method_not_allowed(e):
     return jsonify(action="ERROR",result="Method is not allowed!"), 405
 
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return jsonify(action="ERROR",result="Internal server error!"), 500
+
 # Returns error.
 def return_error(message):
 response = jsonify(action="ERROR",result=message)
