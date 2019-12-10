@@ -260,6 +260,9 @@ def is_locked():
     else:
         return jsonify(action="IS LOCKED",result=False)
 
+@app.errorhandler(405)
+def method_not_allowed(e):
+    return jsonify(action="ERROR",result="Method is not allowed!"), 405
 
 # Returns error.
 def return_error(message):
