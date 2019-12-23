@@ -188,14 +188,14 @@ def set_key():
             if getpassword.value == oldpassword:
                 getpassword.value = newpassword
                 db.session.commit()
-                return jsonify(action="CHANGED PASSWORD", oldpassword=oldpassword, newpassword=newpassword)
+                return jsonify(action="CHANGED PASSWORD", oldpass=oldpassword, newpass=newpassword)
             else:
                 return return_error('Wrong old password!')
         else:
             data = TinyWebDB(tag='dbpass', value=newpassword)
             db.session.add(data)
             db.session.commit()
-            return jsonify(action="SET PASSWORD", oldpassword=oldpassword, newpassword=newpassword)
+            return jsonify(action="SET PASSWORD", oldpass=oldpassword, newpass=newpassword)
     return return_error('No new password is specified!')
 
 
