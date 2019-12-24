@@ -249,6 +249,14 @@ def count_all():
 
 
 # -------------------------
+#  Version
+#  - Shows the tagged version of AsteroidDB instance. 
+# -------------------------
+@app.route('/version')
+def version():
+    return jsonify(action="VERSION", result="1.1")
+
+# -------------------------
 #  Is Locked?
 #  - Gives information about current lock status.
 # -------------------------
